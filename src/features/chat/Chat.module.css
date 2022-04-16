@@ -34,6 +34,7 @@
     width: 400px;
     height: 400px;
     overflow-y: scroll;
+    scroll-behavior: revert;
 }
 .chatTable::-webkit-scrollbar {
     width: 4px;
@@ -41,4 +42,7 @@
 }
 .chatTable::-webkit-scrollbar-thumb {
     background-color: #9890C7;
+}
+.pre {
+    white-space: pre-line;
 }
