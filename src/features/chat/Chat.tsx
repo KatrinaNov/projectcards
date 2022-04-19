@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from "./Chat.module.css";
 import Modal from "../../main/ui/common/Modal/Modal";
 import ModalButtonsWrap from "../../main/ui/common/Modal/ModalButtonsWrap";
@@ -19,7 +19,7 @@ type MessageType = {
   }
 }
 
-let socket:SocketIOClient.Socket | null = null
+let socket: SocketIOClient.Socket | null = null
 
 export const Chat = () => {
   const userName = useSelector<AppRootStateType, string>(state => state.profilePage.name);
@@ -27,7 +27,9 @@ export const Chat = () => {
   const [messages, setMessages] = useState<MessageType[]>([])
   const [newMessage, setNewMessage] = useState<string>('');
   const [isModal, setIsModal] = useState<boolean>(false);
-  const scroll= useRef<HTMLDivElement>(null)
+  const [scrollPosition, setScrollPosition] = useState<number>(0)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const tableRef = useRef<HTMLDivElement>(null)
 
   const showModal = () => setIsModal(true);
   const closeModal = () => setIsModal(false);
@@ -51,9 +53,15 @@ export const Chat = () => {
     }
   }, [])
 
-  useEffect(() => window.scrollTo(0, 1000), []);
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({behavior: "smooth"})
+
+  }, [messages])
+  useEffect(() => {
+    tableRef.current?.scrollTo(0, scrollPosition)
+
+  }, [isModal])
   const sendMassage = () => {
-    if (socket?.connected)
     if(socket?.connected && newMessage){
       socket?.emit("client-message-sent", newMessage, (answer: string) => {
         console.log(answer)
@@ -78,11 +86,15 @@ export const Chat = () => {
         </button>
       </div>
       <Modal title={'Chat'} show={isModal} closeModal={closeModal}>
-        <div className={styles.chatTable} ref={scroll}>
+        <div className={styles.chatTable} onScroll={(e)=>{
+          //e.currentTarget.scrollTo(0, 100)
+          setScrollPosition(e.currentTarget.scrollTop)
+        }} ref={tableRef}>
           {messagesList}
+          <div ref={scrollRef}></div>
         </div>
         <label>New massage</label>
-        <SuperTextArea value={newMessage} onChangeText={setNewMessage} placeholder={'New massage ...'}/>
+        <SuperTextArea value={newMessage} onChangeText={setNewMessage} placeholder={'New message ...'}/>
 
         <ModalButtonsWrap closeModal={closeModal}>
           <SuperButton onClick={sendMassage}>Sand</SuperButton>
