@@ -61,3 +61,12 @@
     font-size: 13px;
     font-weight: 900;
 }
+@media (max-width: 553px) {
+    .chatContainer{
+        position: inherit;
+    }
+    .chatTable{
+        width: 330px;
+        height: 300px;
+    }
+}
