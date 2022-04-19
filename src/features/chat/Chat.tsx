@@ -26,12 +26,16 @@ export const Chat = () => {
 
   const [messages, setMessages] = useState<MessageType[]>([])
   const [newMessage, setNewMessage] = useState<string>('');
+  const [unread, setUnread] = useState<number>(0)
   const [isModal, setIsModal] = useState<boolean>(false);
   const [scrollPosition, setScrollPosition] = useState<number>(0)
   const scrollRef = useRef<HTMLDivElement>(null)
   const tableRef = useRef<HTMLDivElement>(null)
 
-  const showModal = () => setIsModal(true);
+  const showModal = () => {
+    setIsModal(true);
+    setUnread(0)
+  }
   const closeModal = () => setIsModal(false);
 
   useEffect(()=> {
@@ -46,7 +50,9 @@ export const Chat = () => {
     socket.on('new-message-sent', (mes:MessageType)=>{
       console.log(mes)
       setMessages(prevState => [...prevState, mes])
-
+      if (isModal) {
+        setUnread(prevState => prevState + 1)
+      }
     })
     return () => {
       socket?.close()
@@ -83,6 +89,7 @@ export const Chat = () => {
         <button className={styles.btnChat} onClick={showModal}>
           <img src={chatImg} alt="chat" className={styles.chatSymbol}/>
           &nbsp; Chat
+          {unread ? <div className={styles.unread}>{unread}</div> : null}
         </button>
       </div>
       <Modal title={'Chat'} show={isModal} closeModal={closeModal}>
