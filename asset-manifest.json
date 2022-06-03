@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/projectcards/static/css/main.110f6b2a.css",
-    "main.js": "/projectcards/static/js/main.85aa699d.js",
+    "main.css": "/projectcards/static/css/main.202e7943.css",
+    "main.js": "/projectcards/static/js/main.5932a7e3.js",
     "static/js/787.c3e71869.chunk.js": "/projectcards/static/js/787.c3e71869.chunk.js",
     "static/media/editIcon.png": "/projectcards/static/media/editIcon.545bc6345da3171ae4bd.png",
-    "static/media/Packs.svg": "/projectcards/static/media/Packs.5d964c999636ddb653dbad492824c432.svg",
+    "static/media/Packs.svg": "/projectcards/static/media/Packs.376603471d5b69d48ac6e664da226596.svg",
     "static/media/error404.png": "/projectcards/static/media/error404.76ee353c5b1b959f8913.png",
     "static/media/noAvatar.png": "/projectcards/static/media/noAvatar.6c53c0a1c12e6d7eaa36.png",
     "index.html": "/projectcards/index.html",
-    "static/media/IconSearch.svg": "/projectcards/static/media/IconSearch.b12728372dae9c019091.svg",
-    "static/media/Profile.svg": "/projectcards/static/media/Profile.6166565d09ae68878fba759ec5639ff6.svg",
+    "static/media/IconSearch.svg": "/projectcards/static/media/IconSearch.bfc80356bd812126b5b9.svg",
+    "static/media/Profile.svg": "/projectcards/static/media/Profile.b2a040590f850e65b77f9013668b4d3f.svg",
     "static/media/no-view.svg": "/projectcards/static/media/no-view.ef3570e6475960ea172b.svg",
     "static/media/view.svg": "/projectcards/static/media/view.bc05a0cb437d19c6e4d9.svg",
-    "static/media/backPage.svg": "/projectcards/static/media/backPage.d52a0f56410b4c87aee61f6bc39ddef2.svg",
-    "main.110f6b2a.css.map": "/projectcards/static/css/main.110f6b2a.css.map",
-    "main.85aa699d.js.map": "/projectcards/static/js/main.85aa699d.js.map",
+    "static/media/backPage.svg": "/projectcards/static/media/backPage.a2b01485f9abde8e0eac675707165735.svg",
+    "main.202e7943.css.map": "/projectcards/static/css/main.202e7943.css.map",
+    "main.5932a7e3.js.map": "/projectcards/static/js/main.5932a7e3.js.map",
     "787.c3e71869.chunk.js.map": "/projectcards/static/js/787.c3e71869.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.110f6b2a.css",
-    "static/js/main.85aa699d.js"
+    "static/css/main.202e7943.css",
+    "static/js/main.5932a7e3.js"
   ]
 }
